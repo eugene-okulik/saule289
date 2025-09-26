@@ -1,6 +1,7 @@
 my_dict = {'tuple': ('Monday', 1, 'Tuesday', 2, 'Wednesday', True),
            'list': ['January', 3, 'February', 4, 'March', 5],
-           'dict': {'winter': 'December', 'spring': 'April', 'summer': 'June', 'autumn': 'September', 'noseason': False},
+           'dict': {'winter': 'December', 'spring': 'April', 'summer': 'June', 'autumn': 'September',
+                    'noseason': False},
            'set': {True, 31, 'Friday', 'August', 'October'}
            }
 print(my_dict['tuple'][-1])
