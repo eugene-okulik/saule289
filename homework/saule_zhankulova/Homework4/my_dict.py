@@ -7,7 +7,7 @@ my_dict = {'tuple': ('Monday', 1, 'Tuesday', 2, 'Wednesday', True),
 print(my_dict['tuple'][-1])
 my_dict['list'].append(True)
 my_dict['list'].pop(1)
-my_dict['dict']['i am a tuple'] = True
+my_dict['dict'][('i am a tuple',)] = True
 my_dict['dict'].pop('winter')
 my_dict['set'].add(69)
 my_dict['set'].remove(31)
