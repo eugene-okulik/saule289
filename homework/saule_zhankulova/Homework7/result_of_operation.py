@@ -10,7 +10,7 @@ def result_of_operation(result):
     print(int(number_index) + 10)
 
 
-result_of_operation(result = result0)
-result_of_operation(result = result1)
-result_of_operation(result = result2)
-result_of_operation(result = result3)
+result_of_operation(result0)
+result_of_operation(result1)
+result_of_operation(result2)
+result_of_operation(result3)
