@@ -1,6 +1,8 @@
 import sys
 
+
 sys.set_int_max_str_digits(1000000)
+
 
 def fibonachchi():
     num1, num2 = 0, 1
@@ -17,6 +19,5 @@ for i in fibonachchi():
     count += 1
     if count in numbers:
         print(i)
-        continue
     if count >= max(numbers):
         break
