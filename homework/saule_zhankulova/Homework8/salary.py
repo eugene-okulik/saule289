@@ -11,5 +11,4 @@ def calculate_bonus():
     else:
         print(f"\u2022 {salary}, {bonus} - '${salary}'")
 
-
 calculate_bonus()
