@@ -1,3 +1,6 @@
+from webbrowser import open_new_tab
+
+
 def calculate(func):
     def wrapper(*args, **kwargs):
         first, second = args
@@ -19,6 +22,7 @@ def calculate(func):
 first = int(input("Первая цифра: "))
 second = int(input("Вторая цифра: "))
 
+
 @calculate
 def calc(first, second, operation):
     if operation == '+':
@@ -31,5 +35,5 @@ def calc(first, second, operation):
         return second - first
 
 
-result = calc(first, second)
+result = calc(first, second, operation='+')
 print(f"Результат: {result}")
