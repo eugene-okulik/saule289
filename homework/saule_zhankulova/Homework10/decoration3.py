@@ -1,10 +1,6 @@
-from webbrowser import open_new_tab
-
-
 def calculate(func):
     def wrapper(*args, **kwargs):
         first, second = args
-        operation = kwargs.get('operation')
         if first == second:
             result = first + second
         elif first > second:
@@ -35,5 +31,5 @@ def calc(first, second, operation):
         return second - first
 
 
-result = calc(first, second, operation='+')
+result = calc(first, second)
 print(f"Результат: {result}")
