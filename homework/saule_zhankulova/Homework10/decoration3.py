@@ -1,17 +1,16 @@
 def calculate(func):
     def wrapper(*args, **kwargs):
         first, second = args
+        operation = ''
         if first == second:
-            result = first + second
+            operation = '+'
         elif first > second:
-            result = second - first
+            operation = '-'
         elif first < second:
-            result = first / second
+            operation = '/'
         elif first < 0 or second < 0:
-            result = first * second
-        else:
-            result = "Numbers are not correct"
-        return result
+            operation = '*'
+        return func(first, second, operation=operation)
     return wrapper
 
 
@@ -24,7 +23,7 @@ def calc(first, second, operation):
     if operation == '+':
         return first + second
     elif operation == '/':
-        return first % second
+        return first / second
     elif operation == '*':
         return first * second
     elif operation == '-':
