@@ -19,31 +19,30 @@ class Classic(Book):
     school_literature: True
     type = 'classic'
 
+
 sherlok_holmes = Detective('paper', 'available', 'The Hound of the Baskervilles',
                            'Arthur Conan Doyle', '100', '9781234567897',
                            True, 'Sherlock Holmes')
 
-
 poirot = Detective('paper', 'available', 'A Haunting in Venice',
-                           'Agatha Christie', '99', '456789712345',
-                           False, 'Hercule Poirot')
+                   'Agatha Christie', '99', '456789712345',
+                   False, 'Hercule Poirot')
 
-pushkin = Classic('online', 'available', 'Eugene Onegin','Alexander Pushkin',
-                  '120', '9781234567897',False)
+pushkin = Classic('online', 'available', 'Eugene Onegin', 'Alexander Pushkin',
+                  '120', '9781234567897', False)
 
-lermontov = Classic('online', 'available', 'The Cliff','Michail Lermintov',
-                    '50', '9781234567897',False)
+lermontov = Classic('online', 'available', 'The Cliff', 'Michail Lermintov',
+                    '50', '9781234567897', False)
 
-harry_potter = Classic('online', 'available', 'The Harry Potter','Joanne Rowling',
-                    '300', '9781234567897',False)
+harry_potter = Classic('online', 'available', 'The Harry Potter', 'Joanne Rowling',
+                       '300', '9781234567897', False)
 
 books = [sherlok_holmes, poirot, pushkin, lermontov, harry_potter]
-
 
 for book in books:
     if book.reserve:
         print(f"Название: {book.book_name}, Автор: {book.author}, страниц: {book.pages}, "
               f"материал: {book.material}, зарезервирована")
     else:
-       print(f"Название: {book.book_name}, Автор: {book.author}, страниц: {book.pages}, материал: {book.material}")
+        print(f"Название: {book.book_name}, Автор: {book.author}, страниц: {book.pages}, материал: {book.material}")
 
