@@ -45,4 +45,3 @@ for book in books:
               f"материал: {book.material}, зарезервирована")
     else:
         print(f"Название: {book.book_name}, Автор: {book.author}, страниц: {book.pages}, материал: {book.material}")
-
