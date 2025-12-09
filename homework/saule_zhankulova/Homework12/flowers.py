@@ -45,8 +45,8 @@ class Peony(Flower):
 red_rose = Rose('red', 150, 150, 4)
 white_rose = Rose('white', 150, 150, 4)
 red_tulip = Tulip('red', 50, 80, 2)
-yellow_tulip = Tulip( 'yellow', 50, 80, 2)
-peony = Peony( 'pink', 120, 130, 5)
+yellow_tulip = Tulip('yellow', 50, 80, 2)
+peony = Peony('pink', 120, 130, 5)
 
 
 class Bouquet:
