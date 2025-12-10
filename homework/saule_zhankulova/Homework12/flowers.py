@@ -28,25 +28,25 @@ class Flower:
 
 
 class Rose(Flower):
-    def __init__(self, flower_name, color, stem_length, price, durability):
-        super().__init__(flower_name, color, stem_length, price, durability)
+    def __init__(self, color, stem_length, price, durability):
+        super().__init__("Rose", color, stem_length, price, durability)
 
 
 class Tulip(Flower):
-    def __init__(self, flower_name, color, stem_length, price, durability):
-        super().__init__(flower_name, color, stem_length, price, durability)
+    def __init__(self, color, stem_length, price, durability):
+        super().__init__("Tulip", color, stem_length, price, durability)
 
 
 class Peony(Flower):
-    def __init__(self, flower_name, color, stem_length, price, durability):
-        super().__init__(flower_name, color, stem_length, price, durability)
+    def __init__(self, color, stem_length, price, durability):
+        super().__init__("Peony", color, stem_length, price, durability)
 
 
-red_rose = Rose("Rose", 'red', 150, 150, 4)
-white_rose = Rose("Rose", 'white', 150, 150, 4)
-red_tulip = Tulip("Tulip", 'red', 50, 80, 2)
-yellow_tulip = Tulip("Tulip", 'yellow', 50, 80, 2)
-peony = Peony('Peony', 'pink', 120, 130, 5)
+red_rose = Rose('red', 150, 150, 4)
+white_rose = Rose('white', 150, 150, 4)
+red_tulip = Tulip('red', 50, 80, 2)
+yellow_tulip = Tulip('yellow', 50, 80, 2)
+peony = Peony('pink', 120, 130, 5)
 
 
 class Bouquet:
@@ -64,8 +64,8 @@ class Bouquet:
             return 0
         return sum(flower.durability for flower in self.flowers) / len(self.flowers)
 
-    def sort_by_price(self):
-        self.flowers.sort(key=lambda x: x.price)
+    def sort_by(self, key):
+        self.flowers.sort(key=lambda x: getattr(x, key))
 
     def search_by_durability(self, min_days, max_days):
         return [
@@ -103,7 +103,8 @@ if __name__ == "__main__":
     print(f"Общая стоимость: {bouquet.total_cost()} руб.")
     print(f"Среднее время увядания: {bouquet.average_time_for_a_bouquet_to_fade():.1f} дней")
 
-    bouquet.sort_by_price()
+    bouquet.sort_by('price')
+    bouquet.sort_by('durability')
     print("\nПосле сортировки по цене:")
     print(bouquet)
 
