@@ -8,6 +8,7 @@ file_path = os.path.abspath(file_path)
 now = datetime.datetime.now()
 print(file_path)
 
+
 def extract_date(line):
     line = line.strip()
     number, date = line.split(".", 1)
