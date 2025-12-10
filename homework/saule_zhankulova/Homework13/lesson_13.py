@@ -3,9 +3,10 @@ import os
 
 
 base_path = os.path.dirname(__file__)
-file_path = os.path.join(base_path, 'data.txt')
+file_path = os.path.join(base_path, "..", "..", "eugene_okulik", "hw_13", "data.txt")
+file_path = os.path.abspath(file_path)
 now = datetime.datetime.now()
-
+print(file_path)
 
 def extract_date(line):
     line = line.strip()
