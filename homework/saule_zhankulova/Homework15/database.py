@@ -23,7 +23,8 @@ query = "INSERT INTO books (title, taken_by_student_id) VALUES (%s, %s)"
 values = [
     ('История', student_id),
     ('Английский', student_id),
-    ('Математике', student_id) ]
+    ('Математике', student_id)
+]
 cursor.executemany(query, values)
 
 cursor.execute(
@@ -61,10 +62,7 @@ for lesson, subject in lessons_data.items():
     )
     lessons[lesson] = cursor.lastrowid
 
-
-
 query = "INSERT INTO marks (value, lesson_id, student_id) VALUES (%s, %s, %s)"
-
 marks = [
     (5, lessons['математика'], student_id),
     (3, lessons['физика'], student_id),
