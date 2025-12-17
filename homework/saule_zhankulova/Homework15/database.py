@@ -5,25 +5,26 @@ db = mysql.connect(
     passwd='AVNS_tegPDkI5BlB2lW5eASC',
     host='db-mysql-fra1-09136-do-user-7651996-0.b.db.ondigitalocean.com',
     port=25060,
-    database='st-onl'
+    database='st-onl',
+    autocommit=True
 )
 
 cursor = db.cursor()
+db.ping(reconnect=True)
 
 cursor.execute(
     "INSERT INTO students (name, second_name) VALUES (%s, %s)",
     ('Richardson', 'Nikola')
 )
 student_id = cursor.lastrowid
-db.commit()
 
-books = ['История', 'Английский', 'Математика']
-for book in books:
-    cursor.execute(
-        "INSERT INTO books (title, taken_by_student_id) VALUES (%s, %s)",
-        (book, student_id)
-    )
-db.commit()
+
+query = "INSERT INTO books (title, taken_by_student_id) VALUES (%s, %s)"
+values = [
+    ('История', student_id),
+    ('Английский', student_id),
+    ('Математике', student_id) ]
+cursor.executemany(query, values)
 
 cursor.execute(
     "INSERT INTO `groups` (title, start_date, end_date) VALUES (%s, %s, %s)",
@@ -35,13 +36,13 @@ cursor.execute(
     "UPDATE students SET group_id = %s WHERE id = %s",
     (group_id, student_id)
 )
-db.commit()
+
 
 subjects = {}
 for title in ('физика', 'английский', 'изо'):
     cursor.execute("INSERT INTO subjects (title) VALUES (%s)", (title,))
     subjects[title] = cursor.lastrowid
-db.commit()
+
 
 lessons_data = {
     'математика': 'физика',
@@ -59,23 +60,21 @@ for lesson, subject in lessons_data.items():
         (lesson, subjects[subject])
     )
     lessons[lesson] = cursor.lastrowid
-db.commit()
+
+
+
+query = "INSERT INTO marks (value, lesson_id, student_id) VALUES (%s, %s, %s)"
 
 marks = [
-    (5, 'математика'),
-    (3, 'физика'),
-    (4, 'латынь'),
-    (4, 'английский'),
-    (5, 'картины'),
-    (5, 'натюрморт')
+    (5, lessons['математика'], student_id),
+    (3, lessons['физика'], student_id),
+    (4, lessons['латынь'], student_id),
+    (4, lessons['английский'], student_id),
+    (5, lessons['картины'], student_id),
+    (5, lessons['натюрморт'], student_id)
 ]
 
-for value, lesson in marks:
-    cursor.execute(
-        "INSERT INTO marks (value, lesson_id, student_id) VALUES (%s, %s, %s)",
-        (value, lessons[lesson], student_id)
-    )
-db.commit()
+cursor.executemany(query, marks)
 
 cursor.execute("""
 SELECT s.name, s.second_name, m.value
