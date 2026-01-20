@@ -82,6 +82,7 @@ def delete_a_post():
     assert get_response.status_code == 404, f'Expected 404 after deletion, got {get_response.status_code}'
     print(f"Object {object_id} deleted successfully")
 
+
 create_object()
 put_an_object()
 patch_an_object()
