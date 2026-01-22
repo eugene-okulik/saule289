@@ -64,6 +64,7 @@ def test_create_object(name, color, size):
 
     requests.delete(f"{BASE_URL}/{response_data['id']}")
 
+
 @pytest.mark.critical()
 def test_get_object_by_id(create_object):
     response = requests.get(f'{BASE_URL}/{create_object}')
@@ -84,7 +85,6 @@ def test_put_an_object(create_object):
             "size": "small"
         }
     }
-    headers = {'Content-Type': 'application/json'}
     response = requests.put(
         f'{BASE_URL}/{create_object}',
         json=body
@@ -92,7 +92,6 @@ def test_put_an_object(create_object):
     response_data = response.json()
     assert response_data['data']['color'] == 'red', f'Expected color: red, got {response_data["data"]["color"]}'
     assert response_data['data']['size'] == 'small', f'Expected size: small, got {response_data["data"]["size"]}'
-
 
 
 def test_patch_an_object(create_object):
@@ -108,7 +107,6 @@ def test_patch_an_object(create_object):
     response_data = response.json()
     assert response_data['data']['size'] == 'large', f'Expected size: large, got {response_data["data"]["size"]}'
     print(response)
-
 
 
 def test_delete_an_object():
