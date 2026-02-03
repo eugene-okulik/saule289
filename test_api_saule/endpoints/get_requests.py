@@ -1,17 +1,16 @@
 import requests
 import allure
 
-
 from test_api_saule.endpoints.base import Base
 
 
 class GetRequest(Base):
     object_id = None
+
     @allure.step('Get all objects')
     def get_all_objects(self):
         self.response = requests.get(self.url)
         return self.response
-
 
     @allure.step('Get object by id')
     def get_object_by_id(self, object_id):

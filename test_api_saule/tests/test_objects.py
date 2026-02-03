@@ -1,10 +1,12 @@
 new_object = {
-        "name": "University",
-        "data": {
-            "color": "red",
-            "size": "large"
-        }
+    "name": "University",
+    "data": {
+        "color": "red",
+        "size": "large"
     }
+}
+
+
 def test_create_object(create_object, delete_object, object_id):
     create_object.create_new_object(payload=new_object)
     create_object.check_response_name_is_correct(new_object['name'])
