@@ -63,6 +63,7 @@ def test_create_one_object(name='Uni', color='black', size='very large'):
 
     requests.delete(f"{BASE_URL}/{response_data['id']}")
 
+
 @allure.feature('Get objects')
 @allure.story('Get object by id')
 @allure.title('Запрос объяекта по id')
@@ -112,6 +113,7 @@ def test_put_an_object(create_object):
     assert response_data['data']['color'] == 'red', f'Expected color: red, got {response_data["data"]["color"]}'
     assert response_data['data']['size'] == 'small', f'Expected size: small, got {response_data["data"]["size"]}'
 
+
 @allure.feature('Change of objects')
 @allure.story('Patch object')
 @allure.title('Изменение части объекта')
@@ -128,6 +130,7 @@ def test_patch_an_object(create_object):
     response_data = response.json()
     assert response_data['data']['size'] == 'large', f'Expected size: large, got {response_data["data"]["size"]}'
     print(response)
+
 
 @allure.feature('Get objects')
 @allure.story('Delete object by id')
