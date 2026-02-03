@@ -5,6 +5,7 @@ import allure
 
 BASE_URL = "http://objapi.course.qa-practice.com/object"
 
+
 @allure.feature('Create objects')
 @allure.story('Create parametrized objects')
 @allure.title('Создание нескольких объектов с помощью параметрайз')
