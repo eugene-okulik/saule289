@@ -50,7 +50,6 @@ def test_change_part_of_object(create_object, delete_object, change_part_object,
     change_part_object.check_that_status_is_200()
 
 
-
 def test_delete_created_object(create_object, delete_object, get_object, object_id):
 
     delete_object.delete_object_by_id(object_id)
