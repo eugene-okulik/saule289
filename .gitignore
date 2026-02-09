@@ -6,6 +6,6 @@ venv
 __pycache__
 credentials.py
 .env
-allure-results/
-allure-report/
-.allure/
+allure-results
+allure-report
+.allure
