@@ -74,7 +74,7 @@ def patch_an_object():
     clear(object_id)
 
 
-def delete_a_post():
+def delete_an_object():
     object_id = create_object()
     response = requests.delete(f'http://objapi.course.qa-practice.com/object/{object_id}')
     assert response.status_code == 200, f'Expected 200, got {response.status_code}'
@@ -86,4 +86,4 @@ def delete_a_post():
 create_object()
 put_an_object()
 patch_an_object()
-delete_a_post()
+delete_an_object()
