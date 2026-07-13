@@ -77,7 +77,6 @@ class TestDemoQAForm:
         assert result["Address"] == FORM_DATA["address"]
         assert result["State and City"] == f"{FORM_DATA['state']} {FORM_DATA['city']}"
 
-
     @staticmethod
     def _scroll_into_view(driver, element):
         driver.execute_script("arguments[0].scrollIntoView({block: 'center'});", element)
@@ -124,7 +123,6 @@ class TestDemoQAForm:
             )
         )
         self._safe_click(driver, option)
-
 
     @staticmethod
     def _get_modal_result(modal):
