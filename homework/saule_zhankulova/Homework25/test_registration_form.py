@@ -125,6 +125,7 @@ class TestDemoQAForm:
         )
         self._safe_click(driver, option)
 
+
     @staticmethod
     def _get_modal_result(modal):
         rows = modal.find_elements(By.CSS_SELECTOR, "tbody tr")

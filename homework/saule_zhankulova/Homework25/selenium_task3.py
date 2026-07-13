@@ -26,6 +26,7 @@ def test_task3(driver):
     )
     assert "Python" in result.text
 
+
 def test_task4(driver):
     driver.get("https://the-internet.herokuapp.com/dynamic_loading/2")
     start_button = driver.find_element(By.XPATH, "//button[text()='Start']")
@@ -35,4 +36,3 @@ def test_task4(driver):
         EC.visibility_of_element_located((By.ID, 'finish'))
     )
     assert result_text.text == 'Hello World!'
-
